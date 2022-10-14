@@ -17,7 +17,7 @@ class Vector(val x: Double, val y: Double, val z: Double) {
         return sqrt(sqr(x) + sqr(y) + sqr(z))
     }
 
-    fun scalarProduct(vector2: Vector): Double {
+    infix fun scalarProduct(vector2: Vector): Double {
         val x2 = vector2.x
         val y2 = vector2.y
         val z2 = vector2.z
@@ -25,7 +25,7 @@ class Vector(val x: Double, val y: Double, val z: Double) {
     }
 
     operator fun times(vector2: Vector): Double {
-        return Vector(x, y, z).scalarProduct(vector2)
+        return this scalarProduct (vector2)
     }
 }
 
@@ -44,7 +44,7 @@ fun main() {
     val vector2 = Vector(-1.0, -2.0, -3.0)
     println("Длина вектора vector1 = ${vector1.lengthVector()}")
     println("Длина вектора vector2 = ${vector2.lengthVector()}")
-    println("Скалярное произведение vector1 и vector2 = ${vector1.scalarProduct(vector2)}")
+    println("Скалярное произведение vector1 и vector2 = ${vector1 scalarProduct vector2}")
     println(
         "Скалярное произведение Vector(3.0, 4.0 ,5.0) и Vector(-1.0, -2.0, -3.0) = ${
             Vector(3.0, 4.0, 5.0) * Vector(-1.0, -2.0, -3.0)
