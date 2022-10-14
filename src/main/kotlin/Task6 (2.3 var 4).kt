@@ -7,16 +7,16 @@
 
 
 fun main() {
-    val list = arrayOf(1, 2, 3, 4, 5)
-    val product = list.reduce { prod, element -> prod * element }
-    var minimum = 10000000
-    var maximum = -10000000
-    list.forEach {element ->
-        if (minimum > element) {
-            minimum = element
+    val numbers = arrayOf(1, 2, 3, 4, 5)
+    val product = numbers.reduce { prod, element -> prod * element }
+    var minimum = Int.MAX_VALUE
+    var maximum = Int.MIN_VALUE
+    numbers.forEach { num ->
+        if (minimum > num) {
+            minimum = num
         }
-        if (maximum < element) {
-            maximum = element
+        if (maximum < num) {
+            maximum = num
         }
     }
     println("Произведение чисел массива = $product")

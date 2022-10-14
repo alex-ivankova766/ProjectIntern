@@ -3,14 +3,15 @@
 //используя цикл for
 //используя цикл while
 //используя оператор forEach
-
+private const val SECOND_INDEX = 1
 
 fun main() {
-    val list: Array<Int> = arrayOf(1, 5, 4, 6, 2)
-    var index = 1
-    while (index != (list.size - 1)) {
-        if (list[index] > list[index - 1] && list[index] > list[index + 1]) {
-            print("${list[index]} ")
+    val numbers: Array<Int> = arrayOf(1, 5, 4, 6, 2)
+    var index = SECOND_INDEX
+    val LAST_INDEX = numbers.size - 1
+    while (index != LAST_INDEX) {
+        if (numbers[index] > numbers[index - 1] && numbers[index] > numbers[index + 1]) {
+            print("${numbers[index]} ")
         }
         index++
     }

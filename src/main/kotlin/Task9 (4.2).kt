@@ -5,29 +5,22 @@
 //возвращает min элемент массива
 //        Создать свойство которое получает сумму элементов массива.
 
-class arrayNums42(val list: Array<Int>) {
+class arrayNums42(val numbers: Array<Int>) {
     fun changeElems(): Array<Int> {
-        val newList = list.clone()
-        for (index in list.indices) {
+        val tempArray = numbers.clone()
+        for (index in numbers.indices) {
             if (index % 2 == 1) {
-                newList[index] = list[index] * 2
+                tempArray[index] = numbers[index] * 2
             } else {
-                newList[index] = list[index] * 3
+                tempArray[index] = numbers[index] * 3
             }
         }
-    return newList
+        return tempArray
     }
-    fun maxElem(): Int {
-        return list.max()
-    }
-    fun minElem(): Int {
-        return list.min()
-    }
-    fun sumNums(): Int {
-        var resultSum = 0
-        for (elem in list) resultSum += elem
-        return resultSum
-    }
+
+    fun maxElem() = numbers.max()
+    fun minElem() = numbers.min()
+    val sumNums = numbers.sum()
 }
 
 fun main() {
@@ -35,5 +28,5 @@ fun main() {
     println("Изменённый массив = ${myArray.changeElems().asList()}")
     println("Наибольший элемент массива = ${myArray.maxElem()}")
     println("Наименьший элемент массива = ${myArray.minElem()}")
-    println("Сумма элементов массива = ${myArray.sumNums()}")
+    println("Сумма элементов массива = ${myArray.sumNums}")
 }

@@ -5,11 +5,11 @@
 //  1-й. преобразовать строку в число используя toInt(), и отделять цифры используя деление на 10 с остатком “%” и без остатка “/”
 //  2-й. получить 1-й символ строки используя функцию first() и последний с помощью last().
 
-fun readLineWithValidation():Int {
-    var number = readLine().toString().toIntOrNull()
+private fun readLineWithValidation(): Int {
+    var number = readLine()?.toIntOrNull()
     while (number == null) {
         println("Только числа могут быть посчитаны! Введите число.")
-        number = readLine().toString().toIntOrNull()
+        number = readLine()?.toIntOrNull()
     }
     return number.toInt()
 }

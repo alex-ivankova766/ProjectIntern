@@ -4,19 +4,20 @@
 //используя функцию reduce()
 //используя оператор forEach
 //используя функции min() max()
+private const val MIN_PRODUCT = 1
 
 fun main() {
-    val list = arrayOf(1, 2, 3, 4, 5)
-    var product = 1
-    var minimum = 10000000
-    var maximum = -10000000
-    for (elem in list) {
-        product *= elem
-        if (minimum > elem) {
-            minimum = elem
+    val numbers = arrayOf(1, 2, 3, 4, 5)
+    var product = MIN_PRODUCT
+    var minimum = Int.MAX_VALUE
+    var maximum = Int.MIN_VALUE
+    for (num in numbers) {
+        product *= num
+        if (minimum > num) {
+            minimum = num
         }
-        if (maximum < elem) {
-            maximum = elem
+        if (maximum < num) {
+            maximum = num
         }
     }
     println("Произведение чисел массива = $product")
