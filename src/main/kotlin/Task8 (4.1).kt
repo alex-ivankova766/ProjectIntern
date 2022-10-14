@@ -7,7 +7,7 @@
 private const val MIN_SUM = 0
 
 class ArrayNums(val numbers: Array<Int>) {
-    fun sumPosNums(): Int {
+    fun sumPositiveNums(): Int {
         var resultSum = MIN_SUM
         for (num in numbers) {
             if (num > 0) resultSum += num
@@ -15,13 +15,13 @@ class ArrayNums(val numbers: Array<Int>) {
         return resultSum
     }
 
-    fun comNums(): Int {
+    fun productNums(): Int {
         var resultCom = 1
         for (elem in numbers) resultCom *= elem
         return resultCom
     }
 
-    fun arityMath(): Double {
+    fun arithmeticMean(): Double {
         var totalSum = MIN_SUM
         for (elem in numbers) totalSum += elem
         return totalSum.toDouble() / numbers.size.toDouble()
@@ -30,7 +30,7 @@ class ArrayNums(val numbers: Array<Int>) {
 
 fun main() {
     val myArray = ArrayNums(arrayOf(1, 2, 4, 8, -1, 1, -2))
-    println("Сумма всех положительных элементов массива = ${myArray.sumPosNums()}")
-    println("Произведение всех элементов массива = ${myArray.comNums()}")
-    println("Среднее арифметическое всех элементов массива = ${myArray.arityMath()}")
+    println("Сумма всех положительных элементов массива = ${myArray.sumPositiveNums()}")
+    println("Произведение всех элементов массива = ${myArray.productNums()}")
+    println("Среднее арифметическое всех элементов массива = ${myArray.arithmeticMean()}")
 }

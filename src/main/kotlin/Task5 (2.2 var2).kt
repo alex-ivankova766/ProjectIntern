@@ -8,8 +8,7 @@ private const val SECOND_INDEX = 1
 fun main() {
     val numbers: Array<Int> = arrayOf(1, 5, 4, 6, 2)
     var index = SECOND_INDEX
-    val LAST_INDEX = numbers.size - 1
-    while (index != LAST_INDEX) {
+    while (index != numbers.lastIndex) {
         if (numbers[index] > numbers[index - 1] && numbers[index] > numbers[index + 1]) {
             print("${numbers[index]} ")
         }
