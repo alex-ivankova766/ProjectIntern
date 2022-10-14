@@ -37,7 +37,7 @@ fun quadraticRoot(a: Int, b: Int, c: Int): Unit {
         println("Корней нет.")
     }
     for (i in 1..rootsNumber(a, b, c)) {
-        val x = (sign * sqrt(discriminant(a, b, c).toDouble()) - b.toDouble()) / (2 * a.toDouble())
+        val x = (sign * sqrt(discriminant(a, b, c).toDouble()) - b) / (2 * a)
         println("x${i} = $x")
         sign = NEG_SIGN
     }

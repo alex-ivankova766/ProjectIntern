@@ -22,7 +22,7 @@ class ArrayNums(val numbers: Array<Int>) {
     }
 
     fun arityMath(): Double {
-        var totalSum = 0
+        var totalSum = MIN_SUM
         for (elem in numbers) totalSum += elem
         return totalSum.toDouble() / numbers.size.toDouble()
     }

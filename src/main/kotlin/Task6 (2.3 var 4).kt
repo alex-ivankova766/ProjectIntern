@@ -8,7 +8,7 @@
 
 fun main() {
     val numbers = arrayOf(1, 2, 3, 4, 5)
-    val product = numbers.reduce { prod, element -> prod * element }
+    val product = numbers.reduce { product, element -> product * element }
     var minimum = Int.MAX_VALUE
     var maximum = Int.MIN_VALUE
     numbers.forEach { num ->
