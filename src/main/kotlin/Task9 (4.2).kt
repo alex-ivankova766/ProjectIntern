@@ -5,7 +5,7 @@
 //возвращает min элемент массива
 //        Создать свойство которое получает сумму элементов массива.
 
-class arrayNums42(val numbers: Array<Int>) {
+class ArrayNums42(val numbers: Array<Int>) {
     fun changeElems(): Array<Int> {
         val tempArray = numbers.clone()
         for (index in numbers.indices) {
@@ -24,7 +24,7 @@ class arrayNums42(val numbers: Array<Int>) {
 }
 
 fun main() {
-    val myArray = arrayNums42(arrayOf(1, 2, 4, 8, -1, 1, -2))
+    val myArray = ArrayNums42(arrayOf(1, 2, 4, 8, -1, 1, -2))
     println("Изменённый массив = ${myArray.changeElems().asList()}")
     println("Наибольший элемент массива = ${myArray.maxElem()}")
     println("Наименьший элемент массива = ${myArray.minElem()}")
