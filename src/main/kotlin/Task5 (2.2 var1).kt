@@ -6,11 +6,11 @@
 
 
 fun main() {
-    val list: Array<Int> = arrayOf(1, 5, 4, 6, 2)
-    val lastIndex = list.size - 2
-    for (seqNum in 1..lastIndex) {
-        if (list[seqNum] > list[seqNum - 1] && list[seqNum] > list[seqNum + 1]) {
-            print("${list[seqNum]} ")
+    val numbers: Array<Int> = arrayOf(1, 5, 4, 6, 2)
+    val beforeLastIndex = numbers.size - 2
+    for (index in 1..beforeLastIndex) {
+        if (numbers[index] > numbers[index - 1] && numbers[index] > numbers[index + 1]) {
+            print("${numbers[index]} ")
         }
     }
 }

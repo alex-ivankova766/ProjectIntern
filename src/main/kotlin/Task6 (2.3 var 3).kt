@@ -4,19 +4,19 @@
 //используя функцию reduce()
 //используя оператор forEach
 //используя функции min() max()
-
+private const val FIRST_INDEX = 0
 fun main() {
-    val list = arrayOf(1, 2, 3, 4, 5)
-    val product = list.reduce { prod, element -> prod * element }
-    var minimum = 10000000
-    var maximum = -10000000
-    var index = 0
-    while (index != list.size) {
-        if (minimum > list[index]) {
-            minimum = list[index]
+    val numbers = arrayOf(1, 2, 3, 4, 5)
+    val product = numbers.reduce { product, element -> product * element }
+    var minimum = Int.MAX_VALUE
+    var maximum = Int.MIN_VALUE
+    var index = FIRST_INDEX
+    while (index != numbers.size) {
+        if (minimum > numbers[index]) {
+            minimum = numbers[index]
         }
-        if (maximum < list[index]) {
-            maximum = list[index]
+        if (maximum < numbers[index]) {
+            maximum = numbers[index]
         }
         index++
     }

@@ -2,29 +2,28 @@
 //Пользователь вводит с клавиатуры любые числа, до тех пор пока не будет введено число “0”.
 //После ввода нуля необходимо вывести на экран количество введенных чисел, их общую сумму и среднее арифметическое.
 //Использовать ввод с клавиатуры readline().
-
-fun readLineWithValidation3():Int {
-    var number = readLine().toString().toIntOrNull()
+private const val ZERO = 0
+private const val ZERO_FRACTION = 0.0
+private fun readLineWithValidation():Int {
+    var number = readLine()?.toIntOrNull()
     while (number == null) {
         println("Только числа могут быть посчитаны! Введите число.")
-        number = readLine().toString().toIntOrNull()
+        number = readLine()?.toIntOrNull()
     }
-    return number.toInt()
+    return number
 
 }
 fun main() {
-    var sum = 0.0
-    var count = 0.0
-    var arithMean = 0.0
+    var sum = ZERO_FRACTION
+    var count = ZERO
     println("Вы вводите сколько угодно чисел, я подсчитаю их количество и среднее арифметическое. Чтобы закончить ввод, введите 0, после каждого числа нажимайте Enter")
-    var num = readLineWithValidation3()
+    var num = readLineWithValidation()
     while (num != 0) {
-        count += 1.0
-        sum += num.toDouble()
-        arithMean = sum / count
+        count++
+        sum += num
         println("Введите следующее число или 0, чтобы закончить")
         num = readLineWithValidation()
     }
-    val countInt = count.toInt()
-    println("Веедено чисел: $countInt, среднее арифметическое: $arithMean")
+    val arityMean = sum / count
+    println("Веедено чисел: $count, их сумма: $sum среднее арифметическое: $arityMean")
 }

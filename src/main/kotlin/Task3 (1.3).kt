@@ -5,22 +5,25 @@
 //Если число В>A выводим сообщение “Много” и повторяем ввод,
 //если В<А выводим сообщение “Мало”и повторяем ввод, иначе “Угадал”.
 
-fun readLineWithValidation4():Int {
-    var number = readLine().toString().toIntOrNull()
+private fun readLineWithValidation(): Int {
+    var number = readLine()?.toIntOrNull()
     while (number == null) {
         println("Компьютер загадал число! Введите число.")
-        number = readLine().toString().toIntOrNull()
+        number = readLine()?.toIntOrNull()
     }
-    return number.toInt()
+    return number
 }
 
 fun main() {
     val hiddenNumber = (0..10).random()
     println("Угадай число от 0 до 10, которое загадал компьютер :)")
-    var num = readLineWithValidation4()
+    var num = readLineWithValidation()
     while (num != hiddenNumber) {
-        if (num < hiddenNumber) println("Мало. Попытайтесь снова.")
-        if (num > hiddenNumber) println("Много. Попытайтесь снова.")
+        if (num < hiddenNumber) {
+            println("Мало. Попытайтесь снова.")
+        } else {
+            println("Много. Попытайтесь снова.")
+        }
         num = readLineWithValidation()
     }
     println("Угадал")
