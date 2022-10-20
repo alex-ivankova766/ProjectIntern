@@ -15,29 +15,29 @@
 //провести все операции сравнения между объектами vehicle3 и vehicle1, vehicle4 и vehicle1.
 // Проанализировать полученные результаты.
 abstract class Transport() {
-    abstract fun getName(): String
+    abstract fun getNameValue(): String
     abstract fun getSpeedValue(): Int
 }
 
-class Car(private var name: String, val speed: Int) : Transport() {
+class Car(private var name: String, private val speed: Int) : Transport() {
     fun setName(newName: String) {
         name = newName
     }
 
-    override fun getName() = name
+    override fun getNameValue() = name
     override fun getSpeedValue() = speed
 }
 
-data class Vehicle(private var name: String, val speed: Int) : Transport() {
-    override fun getName() = name
+data class Vehicle(private var name: String, private val speed: Int) : Transport() {
+    override fun getNameValue() = name
     override fun getSpeedValue() = speed
 }
 
 fun compare(transport1: Transport, transport2: Transport) {
-    println("(${transport1.getName()}, ${transport1.getSpeedValue()}) == (${transport2.getName()}, ${transport1.getSpeedValue()}) is ${transport1 == transport2}")
-    println("(${transport1.getName()}, ${transport1.getSpeedValue()})  === (${transport2.getName()}, ${transport2.getSpeedValue()}) is ${transport1 === transport2}")
-    println("(${transport1.getName()}, ${transport1.getSpeedValue()}) hashCode is ${transport1.hashCode()}")
-    println("(${transport2.getName()}, ${transport1.getSpeedValue()}) hashCode is ${transport2.hashCode()}")
+    println("(${transport1.getNameValue()}, ${transport1.getSpeedValue()}) == (${transport2.getNameValue()}, ${transport1.getSpeedValue()}) is ${transport1 == transport2}")
+    println("(${transport1.getNameValue()}, ${transport1.getSpeedValue()})  === (${transport2.getNameValue()}, ${transport2.getSpeedValue()}) is ${transport1 === transport2}")
+    println("(${transport1.getNameValue()}, ${transport1.getSpeedValue()}) hashCode is ${transport1.hashCode()}")
+    println("(${transport2.getNameValue()}, ${transport1.getSpeedValue()}) hashCode is ${transport2.hashCode()}")
 }
 
 fun main() {
@@ -52,8 +52,8 @@ fun main() {
     println("Переменные ссылаются на один и тот же объект, поэтому они абсолютно равны.")
     car3.setName("Belaz")
     println("Имя car3 изменено на Belaz")
-    println("car1.name = ${car1.getName()}")
-    println("car3.name = ${car3.getName()}")
+    println("car1.name = ${car1.getNameValue()}")
+    println("car3.name = ${car3.getNameValue()}")
     println("Имя car1 также поменялось, тк переменные по-прежнему ссылаются на один и тот же объект.")
     val vehicle1 = Vehicle("Ural", 100)
     val vehicle2 = Vehicle("Ural", 100)
