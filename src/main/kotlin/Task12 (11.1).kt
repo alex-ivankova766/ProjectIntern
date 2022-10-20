@@ -5,6 +5,6 @@
 //Формула преобразования: (0 °C × 9/5) + 32 = 32 °F
 
 fun main() {
-    val fahrenheit: (Int) -> Double = {it * 9.5 + 32}
+    val fahrenheit: (Int) -> Double = {it * 1.8 + 32}
     println(fahrenheit(1))
 }
