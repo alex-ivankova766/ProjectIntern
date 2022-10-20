@@ -16,7 +16,7 @@
 // Проанализировать полученные результаты.
 abstract class Transport() {
     abstract fun getName(): String
-    abstract fun speedValue(): Int
+    abstract fun getSpeedValue(): Int
 }
 
 class Car(private var name: String, val speed: Int) : Transport() {
@@ -25,19 +25,19 @@ class Car(private var name: String, val speed: Int) : Transport() {
     }
 
     override fun getName() = name
-    override fun speedValue() = speed
+    override fun getSpeedValue() = speed
 }
 
 data class Vehicle(private var name: String, val speed: Int) : Transport() {
     override fun getName() = name
-    override fun speedValue() = speed
+    override fun getSpeedValue() = speed
 }
 
 fun compare(transport1: Transport, transport2: Transport) {
-    println("(${transport1.getName()}, ${transport1.speedValue()}) == (${transport2.getName()}, ${transport1.speedValue()}) is ${transport1 == transport2}")
-    println("(${transport1.getName()}, ${transport1.speedValue()})  === (${transport2.getName()}, ${transport2.speedValue()}) is ${transport1 === transport2}")
-    println("(${transport1.getName()}, ${transport1.speedValue()}) hashCode is ${transport1.hashCode()}")
-    println("(${transport2.getName()}, ${transport1.speedValue()}) hashCode is ${transport2.hashCode()}")
+    println("(${transport1.getName()}, ${transport1.getSpeedValue()}) == (${transport2.getName()}, ${transport1.getSpeedValue()}) is ${transport1 == transport2}")
+    println("(${transport1.getName()}, ${transport1.getSpeedValue()})  === (${transport2.getName()}, ${transport2.getSpeedValue()}) is ${transport1 === transport2}")
+    println("(${transport1.getName()}, ${transport1.getSpeedValue()}) hashCode is ${transport1.hashCode()}")
+    println("(${transport2.getName()}, ${transport1.getSpeedValue()}) hashCode is ${transport2.hashCode()}")
 }
 
 fun main() {
