@@ -1,19 +1,20 @@
 //Пользователь вводит с клавиатуры два числа, знак операции (+,-,* или /) и выполняет над числами указанную операцию.
 
-fun eval(expression: String) : Int {
-    when  {
-        ("-" in expression) -> return expression.split("-")[0].toInt() - expression.split("-")[1].toInt()
-        ("+" in expression) -> return expression.split("+")[0].toInt() + expression.split("+")[1].toInt()
-        ("/" in expression) -> return expression.split("/")[0].toInt() / expression.split("/")[1].toInt()
+fun eval(expression: String): Int {
+    return when {
+        ("-" in expression) -> expression.split("-").first().toInt() - expression.split("-").last().toInt()
+        ("+" in expression) -> expression.split("+").first().toInt().toInt() + expression.split("+").last().toInt()
+        ("/" in expression) -> expression.split("/").first().toInt().toInt() / expression.split("/").last().toInt()
+        else -> expression.split("*").first().toInt().toInt() * expression.split("*").last().toInt()
     }
-    return expression.split("*")[0].toInt() * expression.split("*")[1].toInt()
 }
+
 fun main() {
-    var task = readLine()
-    while (task != null && task.replace(" ", "").replace(Regex("""[0-9]{1,}[+-/*][0-9]{1,}"""), "") != "") {
+    var task = readLine()?.replace(" ", "")
+    while (task != null && task.replace(Regex("[0-9]{1,}[+-/*][0-9]{1,}"), "") != "") {
         println("Введите число, один из математических символов +-*/ и ещё одно число")
-        task = readLine()
+        task = readLine()?.replace(" ", "")
     }
-    task = task!!.replace(" ", "")
+
     println(eval(task!!))
 }
