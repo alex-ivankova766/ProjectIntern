@@ -11,10 +11,10 @@ fun eval(expression: String): Int {
 
 fun main() {
     var task = readLine()?.replace(" ", "")
-    while (task != null && task.replace(Regex("\\d+[+-/*]\\d+"), "") != "") {
+
+    while (task == null || Regex("\\d+[+-/*]\\d+").matchEntire(task) == null) {
         println("Введите число, один из математических символов +-*/ и ещё одно число")
         task = readLine()?.replace(" ", "")
     }
-
     println(eval(task!!))
 }
