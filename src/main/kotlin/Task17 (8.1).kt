@@ -1,20 +1,27 @@
 //Пользователь вводит с клавиатуры два числа, знак операции (+,-,* или /) и выполняет над числами указанную операцию.
 
-fun eval(expression: String): Int {
-    return when {
-        ("-" in expression) -> expression.split("-").first().toInt() - expression.split("-").last().toInt()
-        ("+" in expression) -> expression.split("+").first().toInt().toInt() + expression.split("+").last().toInt()
-        ("/" in expression) -> expression.split("/").first().toInt().toInt() / expression.split("/").last().toInt()
-        else -> expression.split("*").first().toInt().toInt() * expression.split("*").last().toInt()
+fun eval(firstNum: Int, operator: Char, secondNum: Int): Int {
+    return when (operator) {
+        '-' -> firstNum - secondNum
+        '+' -> firstNum + secondNum
+        '/' -> firstNum / secondNum
+        else -> firstNum * secondNum
     }
 }
 
 fun main() {
-    var task = readLine()?.replace(" ", "")
+    var match: MatchResult? = null
 
-    while (task == null || Regex("\\d+[+-/*]\\d+").matchEntire(task) == null) {
-        println("Введите число, один из математических символов +-*/ и ещё одно число")
-        task = readLine()?.replace(" ", "")
-    }
-    println(eval(task!!))
+    do {
+        val task = readLine()
+        if (task != null) {
+            match = Regex("\\s*(?<firstNum>\\d+)\\s*(?<operator>[+-/*])\\s*(?<secondNum>\\d+)\\s*").matchEntire(task)
+        }
+    } while (match == null)
+
+    val firstNum = match.groups["firstNum"]!!.value.toInt()
+    val operator = match.groups["operator"]!!.value[0]
+    val secondNum = match.groups["secondNum"]!!.value.toInt()
+
+    println(eval(firstNum, operator, secondNum))
 }
