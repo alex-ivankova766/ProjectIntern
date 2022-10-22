@@ -11,11 +11,12 @@ fun eval(firstNum: Int, operator: Char, secondNum: Int): Int {
 
 fun main() {
     var match: MatchResult? = null
-
+    val regex = Regex("\\s*(?<firstNum>\\d+)\\s*(?<operator>[+\\-/*])\\s*(?<secondNum>\\d+)\\s*")
     do {
+        println("Введите, пожалуйста, число, знак математической операции -+/* и ещё одно число.")
         val task = readLine()
         if (task != null) {
-            match = Regex("\\s*(?<firstNum>\\d+)\\s*(?<operator>[+-/*])\\s*(?<secondNum>\\d+)\\s*").matchEntire(task)
+            match = regex.matchEntire(task)
         }
     } while (match == null)
 
