@@ -2,6 +2,6 @@
 //Использовать функцию filter{}
 
 fun main() {
-    val numbers = arrayOf(0, -7, 5, 13, -22, 150)
+    val numbers = listOf(0, -7, 5, 13, -22, 150)
     val negativeNumbers = numbers.filter { it < 0 }
 }
