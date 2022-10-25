@@ -7,18 +7,27 @@
 
 fun main() {
     val words: List<String?> = listOf("dog", null, "CAT", null, "Crocodile")
+
     println("if with forEach")
-    words.forEach { word -> println(if (word != null) word.uppercase() else "empty") }
-    println("if with for")
+    words.forEach { word ->
+        println(if (word != null) word.uppercase() else "empty") }
+
+    println("\nif with for")
     for (word in words) {
         if (word != null) {
             println(word.uppercase())
         }
     }
-    println("?")
-    words.forEach { word -> println(word?.uppercase()) }
-    println("let")
-    words.forEach { word -> word?.let { println(word.uppercase()) } }
-    println("?:")
-    words.forEach { word -> println(word?.uppercase() ?: "empty") }
+
+    println("\n?")
+    words.forEach { word ->
+        println(word?.uppercase()) }
+
+    println("\nlet")
+    words.forEach { word ->
+        word?.let { println(it.uppercase()) } }
+
+    println("\n?:")
+    words.forEach { word ->
+        println(word?.uppercase() ?: "empty") }
 }
